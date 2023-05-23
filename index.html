@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Hotel Booking</title>
+</head>
+<body>
+  <form class="container">
+    
+    <div class="header">
+      <h1>Hotel Booking</h1>
+      <p>Experience something new every moment</p>
+    </div>
+    <div class="hotelForm">
+      
+      <div class="form-group">
+        <h3>Name</h3>
+        <div class="theName">
+        <label for="firstName">
+          <input type="text" id="firstName" required>
+          <br>
+          <p>First Name</p>
+        </label>
+  
+          <label for="lastName">
+            <input type="text" id="lastName" required>
+           <br>
+           <p>Last Name</p>
+            </label>
+          </div>
+      </div>
+
+      <div class="form-group" id="email">
+        <h3>Email</h3>
+        <input type="email" id="email" required>
+      </div>
+
+      <div class="form-group" id="roomType">
+        <h3>Room Type</h3>
+        <div id="hotelSelect">
+          <p>Please Select</p>
+          <p id="reaveal">^</p>
+        </div>
+  
+        <div id="hotelType">
+          <p>
+            <span>Single Room</span>
+            <span>6,500</span>
+          </p>
+          <p>
+            <span>Double Room</span>
+            <span>8,000</span>
+          </p>
+          <p>
+            <span>Silver Room</span>
+            <span>11,500</span>
+          </p>
+          <p>
+            <span>Gold Room</span>
+            <span>15,500</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group guestAmount">
+        <h3>Number of Guest</h3>
+        <div class="numberOfGuest">
+          <span id="remove" class="colored">-</span>
+          <input type="number" id="amountOfGuest" placeholder="0">
+          <span id="add" class="colored">+</span>
+        </div>
+      </div>
+
+      <div class="form-group arriveDate">
+        <div class="arrive-head">
+          <h3>Arrival Date and time</h3>
+        </div>
+       
+        <div class="arrivecontent">
+          <label for="dateArrived">
+            <input    type="date"id="dateArrived">
+            <br>
+            Date
+          </label>
+       
+          <label for="hourArrived">
+            <input  
+            type="time"id="hourArrived">
+            <br>
+            Hour Minutes
+          </label>
+       
+          <input  type="time"id="timeArrived">
+      </div>
+    </div>
+      <div class="form-group">
+        <h3>Departure Date</h3>
+        <input type="month" id="monthDepart">
+        <label for="month">Month</label>
+
+        <input type="time" id="day">
+        <label for="dayDepart">Day</label>
+
+        <input type="date" name="" id="">
+        <label for="yearDepart">Year</label>
+      </div>
+
+      <div class="form-group">
+        <h3>feeding</h3>
+        <span>feeding</span>
+        <span>BreakFast</span>
+        <input type="checkbox"id="breakFast">
+        <label for="breakFast">BreakFast</label>
+        <input type="checkbox"id="lunch">
+        <label for="lunch">Lunch</label>
+        <input type="checkbox"id="dinner">
+        <label for="dinner">Dinner</label>
+      
+    </div>
+  </div>
+  </form>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family:sans-serif;
+  margin: 0;
+}
+
+.container {
+  margin: auto;
+  width: 90%;
+  min-height: 99vh;
+}
+
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.header h1 {
+  color: #333;
+  font-size: 1.8rem;
+}
+
+.header p {
+  font-size: 0.8rem;
+  color: grey;
+}
+
+.form-group {
+  margin-bottom: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  /* background-color: orange; */
+  padding: 8px;
+}
+
+.theName {
+  display: flex;
+}
+
+input {
+  width: 90%;
+  height: 35px;
+  margin-top: 5px;
+  padding-left: 10px;
+  color: #222;
+  outline-color: blue;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.theName label {
+  width: 60%;
+}
+
+h3 {
+  color: grey;
+  font-size: 1rem;
+}
+
+
+.theName p {
+  padding-top: 3px;
+  font-size: 0.8rem;
+  opacity: .7;
+}
+
+
+#email {
+  width: 100%;
+  box-sizing: border-box;
+  /* background-color: orange; */
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#email input {
+  width: 48%;
+  height: 35px;
+  margin-top: 5px;
+  margin-right: 3.3%;
+  color: #222;
+  outline-color: blue;
+  border-radius: 5px;
+}
+
+#roomType {
+  /* background-color: orange; */
+  width: 95%;
+  padding: 10px;
+  position: relative;
+}
+
+#roomType h3 {
+  padding: 10px 0 7px 0;
+}
+
+.form-group #hotelSelect {
+  width: 60%;
+  border: 2px solid red;
+  background-color: #111;
+  color: #fff;
+  height: 35px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px 0 10px;
+}
+
+.form-group #hotelType {
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  width: 63%;
+  box-sizing: border-box;
+  /* padding: 5px 10px 5px 12px; */
+  border-radius: 0 0 5px 5px;
+  top: 80px;
+  display: none;
+  visibility: hidden;
+}
+
+.form-group #hotelSelect #reaveal{
+  cursor: pointer;
+  font-size: 20px;
+  width: 10px;
+  top: 10px;
+}
+
+.form-group #hotelType p {
+  display: flex;
+  width: 94%;
+  justify-content: space-between;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  padding: 8px 10px 7px 5px;
+  background-color: #111;
+}
+
+.form-group #hotelType p:hover {
+  background-color: #333;
+}
+
+.form-group #hotelType.active{
+  display: block;
+  visibility: visible;
+}
+
+.form-group .numberOfGuest {
+  background-color: gray;
+  display: flex;
+  width: 50%;
+  margin-right: 15px;
+  height: 20%;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.form-group .numberOfGuest .colored {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 23%;
+  height: 40px;
+  font-size: 2rem;
+}
+
+.form-group #amountOfGuest {
+  width: 60%;
+  height: 40px;
+  text-align: center;
+  margin-top: 0;
+  color: #222;
+  outline: none;
+  border-radius: 0;
+}
+
+.guestAmount {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group #amountOfGuest::-webkit-outer-spin-button,
+.form-group #amountOfGuest::-webkit-inner-spin-button {
+        display: none;
+      }
+
+.arriveDate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arriveDate .arrivecontent {
+  background-color: red;
+  display: flex;
+  width: 50%;
+}
+
+
+.arriveDate .arrivecontent input {
+  width: 10%;
+  height: 35px;
+  margin-top: 0;
+  padding-left: 0;
+  color: #222;
+  outline-color: blue;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
