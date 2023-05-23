@@ -8,71 +8,79 @@
   <title>Hotel Booking</title>
 </head>
 <body>
-  <form class="container">
+  <form class="form">
     
     <div class="header">
       <h1>Hotel Booking</h1>
       <p>Experience something new every moment</p>
     </div>
-    <div class="hotelForm">
-      
-      <div class="form-group">
-        <h3>Name</h3>
-        <div class="theName">
-        <label for="firstName">
-          <input type="text" id="firstName" required>
-          <br>
-          <p>First Name</p>
-        </label>
-  
-          <label for="lastName">
-            <input type="text" id="lastName" required>
-           <br>
-           <p>Last Name</p>
-            </label>
-          </div>
-      </div>
 
+
+    <div class="hotelForm">
+      <div class="flex-group">
+
+        <div class="form-group">
+          <label for="firstName">
+            First Name
+          </label>
+          <input type="text" id="firstName" required>
+        </div>
+          
+        <div class="form-group ">
+          <label for="lastName">
+            Last Name
+          </label>
+          <input type="text" id="lastName" required>
+        </div>
+
+      </div>
+      
       <div class="form-group" id="email">
-        <h3>Email</h3>
+        <label>Email</label>
         <input type="email" id="email" required>
       </div>
 
       <div class="form-group" id="roomType">
-        <h3>Room Type</h3>
+        <label>Room Type</label>
+
         <div id="hotelSelect">
-          <p>Please Select</p>
-          <p id="reaveal">^</p>
+          <p>Please select</p>
+          <span id="reveal" class="open" >^</span>
         </div>
   
         <div id="hotelType">
-          <p>
+          <div class="option" data-type="Single Room" data-price="6500">
             <span>Single Room</span>
             <span>6,500</span>
-          </p>
-          <p>
+          </div>
+          
+          <div class="option" data-type="Double Room" data-price="8000">
             <span>Double Room</span>
             <span>8,000</span>
-          </p>
-          <p>
+          </div>
+          
+          <div class="option" data-type="Silver Room" data-price="11500">
             <span>Silver Room</span>
             <span>11,500</span>
-          </p>
-          <p>
+          </div>
+          
+          <div class="option" data-type="Gold Room" data-price="15500">
             <span>Gold Room</span>
             <span>15,500</span>
-          </p>
+          </div>
         </div>
       </div>
 
-      <div class="form-group guestAmount">
-        <h3>Number of Guest</h3>
+      <div class="form-group">
+        <label>Number of guests</label>
+
         <div class="numberOfGuest">
-          <span id="remove" class="colored">-</span>
-          <input type="number" id="amountOfGuest" placeholder="0">
-          <span id="add" class="colored">+</span>
+          <button id="minus" class="colored">-</button>
+          <input type="number" id="amountOfGuest" value="0">
+          <button id="add" class="colored">+</button>
         </div>
       </div>
+    </div>
 
       <div class="form-group arriveDate">
         <div class="arrive-head">

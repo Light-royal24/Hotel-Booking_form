@@ -4,15 +4,27 @@
 }
 
 body {
-  min-height: 100vh;
   font-family:sans-serif;
   margin: 0;
 }
 
-.container {
+.red-border {
+  border: 2px solid red;
+}
+
+.blue-border {
+  border: 2px solid blue;
+}
+
+.black-border {
+  border: 2px solid black;
+}
+
+.form {
   margin: auto;
+  padding: 20px 0;
+  padding-bottom: 80px;
   width: 90%;
-  min-height: 99vh;
 }
 
 
@@ -34,167 +46,126 @@ body {
 }
 
 .form-group {
-  margin-bottom: 5px;
-  width: 100%;
-  box-sizing: border-box;
-  /* background-color: orange; */
-  padding: 8px;
-}
-
-.theName {
+  flex-grow: 1;
+  margin: 15px 0;
   display: flex;
+  flex-direction: column;
 }
 
-input {
-  width: 90%;
-  height: 35px;
-  margin-top: 5px;
-  padding-left: 10px;
+.flex-group {
+  display: flex;
+  gap: 15px;
+}
+
+input, #hotelSelect, .input {
+  flex-grow: 1;
+  padding: 10px;
   color: #222;
   outline-color: blue;
   border-radius: 5px;
   border: 1px solid gray;
 }
 
-.theName label {
-  width: 60%;
-}
-
-h3 {
+label {
   color: grey;
   font-size: 1rem;
 }
 
-
-.theName p {
-  padding-top: 3px;
-  font-size: 0.8rem;
-  opacity: .7;
-}
-
-
-#email {
-  width: 100%;
-  box-sizing: border-box;
-  /* background-color: orange; */
-  padding: 8px;
+.form-group #hotelSelect {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 }
 
-#email input {
-  width: 48%;
-  height: 35px;
-  margin-top: 5px;
-  margin-right: 3.3%;
-  color: #222;
-  outline-color: blue;
-  border-radius: 5px;
+#reveal {
+  display: flex;
+  font-weight: bold;
+  margin-top: -10px;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg);
+  transition: all 0.2s ease-in-out;
+}
+
+#reveal.open {
+  transform: rotate(0deg);
+  margin-top: 0px;
 }
 
 #roomType {
-  /* background-color: orange; */
-  width: 95%;
-  padding: 10px;
   position: relative;
 }
 
-#roomType h3 {
-  padding: 10px 0 7px 0;
-}
-
-.form-group #hotelSelect {
-  width: 60%;
-  border: 2px solid red;
-  background-color: #111;
-  color: #fff;
-  height: 35px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 10px 0 10px;
-}
-
 .form-group #hotelType {
+  border-radius: 5px;
   position: absolute;
-  background-color: #333;
-  color: #fff;
-  width: 63%;
-  box-sizing: border-box;
-  /* padding: 5px 10px 5px 12px; */
-  border-radius: 0 0 5px 5px;
-  top: 80px;
+  top: 0px;
+  width: 100%;
+  transition: all 0.2s ease-in;
+  opacity: 0;
   display: none;
-  visibility: hidden;
 }
 
-.form-group #hotelSelect #reaveal{
-  cursor: pointer;
-  font-size: 20px;
-  width: 10px;
-  top: 10px;
-}
-
-.form-group #hotelType p {
+.form-group #hotelType div {
   display: flex;
-  width: 94%;
+  background-color: #ccc;
   justify-content: space-between;
-  margin-top: 5px;
-  padding-bottom: 5px;
   cursor: pointer;
+  transition: all 0.2s ease-in;
+  border: 1px solid #aaa;
   padding: 8px 10px 7px 5px;
-  background-color: #111;
 }
 
-.form-group #hotelType p:hover {
-  background-color: #333;
+.form-group #hotelType div:hover {
+  background-color: #aaa;
 }
 
 .form-group #hotelType.active{
+  top: 60px;
+  opacity: 1;
   display: block;
-  visibility: visible;
 }
 
-.form-group .numberOfGuest {
-  background-color: gray;
+.numberOfGuest {
   display: flex;
-  width: 50%;
-  margin-right: 15px;
-  height: 20%;
-  border: 1px solid #333;
+  gap: 3px;
+  align-items: stretch;
   border-radius: 5px;
 }
 
-.form-group .numberOfGuest .colored {
+.numberOfGuest button {
+  width: 30px;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: white;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+  transition: all 0.2s ease-in;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 23%;
-  height: 40px;
-  font-size: 2rem;
+}
+
+.numberOfGuest button:hover {
+  background-color: #ddd;
 }
 
 .form-group #amountOfGuest {
-  width: 60%;
-  height: 40px;
   text-align: center;
-  margin-top: 0;
-  color: #222;
-  outline: none;
-  border-radius: 0;
+  font-weight: bold;
+  justify-self: center;
+  height: 100%;
+  align-self: center;
+  display: flex;
+  color: black;
 }
 
-.guestAmount {
-  display: flex;
-  justify-content: space-between;
-}
 
 .form-group #amountOfGuest::-webkit-outer-spin-button,
 .form-group #amountOfGuest::-webkit-inner-spin-button {
-        display: none;
-      }
+  display: none;
+}
 
 .arriveDate {
   display: flex;
@@ -205,17 +176,9 @@ h3 {
 .arriveDate .arrivecontent {
   background-color: red;
   display: flex;
+  justify-content: space-between;
   width: 50%;
+  margin-right: 15px;
+  padding: none;
 }
 
-
-.arriveDate .arrivecontent input {
-  width: 10%;
-  height: 35px;
-  margin-top: 0;
-  padding-left: 0;
-  color: #222;
-  outline-color: blue;
-  border-radius: 5px;
-  border: 1px solid gray;
-}
