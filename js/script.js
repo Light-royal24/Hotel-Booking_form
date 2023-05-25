@@ -2,6 +2,9 @@ const hotelSelect = document.querySelector("#hotelSelect")
 const hotelSelectP = hotelSelect.querySelector('p')
 const minusBtn = document.querySelector("#minus"),
       addBtn = document.querySelector("#add"),
+      show = document.querySelector("#show"),
+      feedingChoice = document.querySelector("#feedingChoice"),
+      feedingSelect = document.querySelector("#feedingSelect"),
       amountOfGuest = document.querySelector("#amountOfGuest")
 
 const room = {
@@ -23,8 +26,8 @@ options.forEach(option => {
     
     hotelSelectP.innerHTML = roomType + " (NGN " + roomPrice + ")";
     
-    room.type = roomType
-    room.price = roomPrice
+    // room.type = roomType
+    // room.price = roomPrice
     
     document.querySelector("#reveal").classList.toggle('open')
     document.querySelector("#hotelType").classList.toggle('active')
@@ -32,7 +35,7 @@ options.forEach(option => {
 })
 
 minusBtn.addEventListener("click", (e) => {
-  e.preventDefault()
+  e.preventDefault();
   const value = Number(amountOfGuest.value);
 
   if(value === 0) {
@@ -44,7 +47,7 @@ minusBtn.addEventListener("click", (e) => {
 
 
 addBtn.addEventListener("click", (e) => {
-  e.preventDefault()
+  e.preventDefault();
   const value = Number(amountOfGuest.value);
 
   if(value === 10) {
@@ -53,3 +56,10 @@ addBtn.addEventListener("click", (e) => {
 
   amountOfGuest.value ++;
 })
+
+
+feedingSelect.addEventListener("click", () => {
+  feedingChoice.classList.toggle('active')
+  show.classList.toggle('shown')
+})
+
