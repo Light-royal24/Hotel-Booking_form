@@ -232,6 +232,18 @@ label {
   padding: 8px 10px 7px 5px;
 }
 
+.form-group #feedingChoice .choice.acted {
+  color: #aaa;
+  background-color: darkolivegreen;
+}
+
+
+.form-group #feedingChoice .choice.acted:hover {
+  color: #aaa;
+  background-color: yellowgreen;
+}
+
+
 .form-group #feedingChoice .choice:hover {
   background-color: #aaa;
 }
@@ -302,4 +314,34 @@ select {
   color: #333;
   font-size: 1rem;
   text-transform: uppercase;
+}
+
+#okFood {
+  background-color: #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  border: 1px solid #aaa;
+  display: flex;
+  justify-content: right;
+  padding: 8px 10px 7px 5px;
+  margin-bottom: 30px;
+}
+
+#btnLeft {
+  width: 15%;
+}
+
+#storeSelFood {
+  width: 100%;
+  color: #333;
+  background-color: #aaa;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+
+#storeSelFood:hover {
+  color: #aaa;
+  background-color: #333;
 }

@@ -63,3 +63,39 @@ feedingSelect.addEventListener("click", () => {
   show.classList.toggle('shown')
 })
 
+const checkBtn = document.querySelectorAll(".checked"),
+      btnLeft = document.querySelector("#btnLeft"),
+      feed = document.querySelector("#feed");
+ 
+
+
+const choices = document.querySelectorAll(".choice");
+choices.forEach(choice => {
+  
+  choice.addEventListener("click", () => {
+   choice.classList.toggle("acted")
+
+   const choiceType = choice.dataset.type
+   const choicePrice = choice.dataset.price;
+   
+btnLeft.addEventListener("click", (e) => {
+  e.preventDefault();
+
+    if(choice.classList.contains('acted')) {
+    
+      alert(choiceType + choicePrice)
+      
+    }else {
+      return;
+    } 
+    
+    
+  });
+
+  })
+});
+
+  
+btnLeft.addEventListener("click", (e) => {
+  e.preventDefault();
+  });
