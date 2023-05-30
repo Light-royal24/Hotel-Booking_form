@@ -1,101 +1,109 @@
-const hotelSelect = document.querySelector("#hotelSelect")
-const hotelSelectP = hotelSelect.querySelector('p')
-const minusBtn = document.querySelector("#minus"),
-      addBtn = document.querySelector("#add"),
-      show = document.querySelector("#show"),
-      feedingChoice = document.querySelector("#feedingChoice"),
-      feedingSelect = document.querySelector("#feedingSelect"),
-      amountOfGuest = document.querySelector("#amountOfGuest")
+// const show = document.querySelector("#show")
+// const feedingChoice = document.querySelector("#feedingChoice")
+// const feedingSelect = document.querySelector("#feedingSelect")
 
-const room = {
-  type: "",
-  amount: ""
-}
+// minusBtn.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   const value = Number(amountOfGuest.value);
 
-hotelSelect.addEventListener("click", () => {
-  document.querySelector("#hotelType").classList.toggle('active')
-  document.querySelector("#reveal").classList.toggle('open')
-})
+//   if(value === 0) {
+//     return;
+//   }
 
-const options = document.querySelectorAll('.option')
+//   amountOfGuest.value --;
+// })
 
-options.forEach(option => {
-  option.addEventListener('click', () => {
-    const roomType = option.dataset.type
-    const roomPrice = option.dataset.price
-    
-    hotelSelectP.innerHTML = roomType + " (NGN " + roomPrice + ")";
-    
-    // room.type = roomType
-    // room.price = roomPrice
-    
-    document.querySelector("#reveal").classList.toggle('open')
-    document.querySelector("#hotelType").classList.toggle('active')
-  })
-})
+// addBtn.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   const value = Number(amountOfGuest.value);
 
-minusBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  const value = Number(amountOfGuest.value);
+//   if(value === 10) {
+//     return;
+//   }
 
-  if(value === 0) {
-    return;
-  }
+//   amountOfGuest.value ++;
+// })
 
-  amountOfGuest.value --;
-})
+// feedingSelect.addEventListener("click", () => {
+//   feedingChoice.classList.toggle('active')
+//   show.classList.toggle('shown')
+// })
 
+// const checkBtn = document.querySelectorAll(".checked"),
+//       btnLeft = document.querySelector("#btnLeft"),
+//       feed = document.querySelector("#feed");
 
-addBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  const value = Number(amountOfGuest.value);
+// const choices = document.querySelectorAll(".choice");
+// const myDiv = document.querySelector("#feedingChoice");
+// const choice1 = document.querySelector(".choice1");
+// const choice2 = document.querySelector(".choice2");
+// const choice3 = document.querySelector(".choice3");
+// const submitForm = document.querySelector("#submitForm");
+// const myDivChildren = myDiv.children;
 
-  if(value === 10) {
-    return;
-  }
+// choices.forEach(choice => {
 
-  amountOfGuest.value ++;
-})
+//   choice.addEventListener("click", () => {
+//    choice.classList.toggle("acted")
 
+//    const choiceType = choice.dataset.type
+//    const choicePrice = choice.dataset.price;
 
-feedingSelect.addEventListener("click", () => {
-  feedingChoice.classList.toggle('active')
-  show.classList.toggle('shown')
-})
+// btnLeft.addEventListener("click", (e) => {
+//   e.preventDefault();
 
-const checkBtn = document.querySelectorAll(".checked"),
-      btnLeft = document.querySelector("#btnLeft"),
-      feed = document.querySelector("#feed");
- 
+//   if(myDiv.children.item(0).classList.contains("acted")){
+//     choice1.innerHTML = choicePrice;
+//     choice.classList.remove("acted");
+//     return;
+//   }
 
+//   if(myDiv.children.item(1).classList.contains("acted")){
+//     choice2.innerHTML = choicePrice;
+//     choice.classList.remove("acted");
+//     return;
+//   }
 
-const choices = document.querySelectorAll(".choice");
-choices.forEach(choice => {
-  
-  choice.addEventListener("click", () => {
-   choice.classList.toggle("acted")
+//   if(myDiv.children.item(2).classList.contains("acted")){
+//     choice3.innerHTML = choicePrice;
+//     choice.classList.remove("acted");
+//     return;
+//   }
 
-   const choiceType = choice.dataset.type
-   const choicePrice = choice.dataset.price;
-   
-btnLeft.addEventListener("click", (e) => {
-  e.preventDefault();
+//   });
 
-    if(choice.classList.contains('acted')) {
-    
-      alert(choiceType + choicePrice)
-      
-    }else {
-      return;
-    } 
-    
-    
-  });
+//   })
+// });
 
-  })
-});
+// btnLeft.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   });
 
-  
-btnLeft.addEventListener("click", (e) => {
-  e.preventDefault();
-  });
+//   submitForm.addEventListener('click', (e) => {
+//     e.preventDefault();
+
+//     ValidateEmail(Email);
+
+//     if(hotelSelectP.innerHTML != options) {
+//      alert("pls select room type")
+//      hotelSelect.focus();
+//     }
+
+//   })
+
+//   function ValidateEmail(inputText)
+//   {
+//   const mailformat =   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+//   if(Email.value.match(mailformat))
+//   {
+//   // alert("You have entered a valid email address!");
+//   // Email.focus();
+//   return true;
+//   }
+//   else
+//   {
+//   alert("You have entered an invalid email address!");
+//   Email.focus();
+//   return false;
+//   }
+//   }

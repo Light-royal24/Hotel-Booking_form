@@ -292,29 +292,8 @@ label {
   background-color: lawngreen;
 }
 
-.form-group #hourArrived::-webkit-datetime-edit-ampm-field,
-.form-group #hourArrived::-webkit-datetime-edit-ampm {
-  display: none;
-  appearance: none;
-  margin: 0; 
-}
 
-input[type=time]::-webkit-clear-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: 0; 
-}
 
-select {
-  height: 35px;
-  border-radius: 5px;
-  margin-bottom: 3px;
-  outline-color: blue;
-  color: #333;
-  font-size: 1rem;
-  text-transform: uppercase;
-}
 
 #okFood {
   background-color: #ccc;
@@ -344,4 +323,10 @@ select {
 #storeSelFood:hover {
   color: #aaa;
   background-color: #333;
+}
+
+
+.form-group #feedingChoice .choice1 , .choice2, .choice3 {
+ left: -9999px;
+ position: absolute;
 }
