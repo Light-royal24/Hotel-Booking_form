@@ -1,79 +1,54 @@
-// const show = document.querySelector("#show")
-// const feedingChoice = document.querySelector("#feedingChoice")
-// const feedingSelect = document.querySelector("#feedingSelect")
+const show = document.querySelector("#show");
+const feedingChoice = document.querySelector("#feedingChoice");
+const feedingSelect = document.querySelector("#feedingSelect");
+const feedingP = document.querySelector("#feed");
 
-// minusBtn.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   const value = Number(amountOfGuest.value);
+feedingSelect.addEventListener("click", () => {
+  feedingChoice.classList.toggle("active");
+  show.classList.toggle("shown");
+});
 
-//   if(value === 0) {
-//     return;
-//   }
+const choices = document.querySelectorAll(".choice");
+const myDiv = document.querySelector("#feedingChoice");
+const choice1 = document.querySelector(".choice1");
+const choice2 = document.querySelector(".choice2");
+const choice3 = document.querySelector(".choice3");
+const submitForm = document.querySelector("#submitForm");
+const myDivChildren = myDiv.children;
 
-//   amountOfGuest.value --;
-// })
+choices.forEach((choice) => {
+  choice.addEventListener("click", () => {
+    choice.classList.toggle("acted");
 
-// addBtn.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   const value = Number(amountOfGuest.value);
+    const choiceType = choice.dataset.type;
+    const choicePrice = choice.dataset.price;
 
-//   if(value === 10) {
-//     return;
-//   }
+    btnLeft.addEventListener("click", (e) => {
+      e.preventDefault();
 
-//   amountOfGuest.value ++;
-// })
-
-// feedingSelect.addEventListener("click", () => {
-//   feedingChoice.classList.toggle('active')
-//   show.classList.toggle('shown')
-// })
-
-// const checkBtn = document.querySelectorAll(".checked"),
-//       btnLeft = document.querySelector("#btnLeft"),
-//       feed = document.querySelector("#feed");
-
-// const choices = document.querySelectorAll(".choice");
-// const myDiv = document.querySelector("#feedingChoice");
-// const choice1 = document.querySelector(".choice1");
-// const choice2 = document.querySelector(".choice2");
-// const choice3 = document.querySelector(".choice3");
-// const submitForm = document.querySelector("#submitForm");
-// const myDivChildren = myDiv.children;
-
-// choices.forEach(choice => {
-
-//   choice.addEventListener("click", () => {
-//    choice.classList.toggle("acted")
-
-//    const choiceType = choice.dataset.type
-//    const choicePrice = choice.dataset.price;
-
-// btnLeft.addEventListener("click", (e) => {
-//   e.preventDefault();
-
-//   if(myDiv.children.item(0).classList.contains("acted")){
-//     choice1.innerHTML = choicePrice;
-//     choice.classList.remove("acted");
-//     return;
-//   }
-
-//   if(myDiv.children.item(1).classList.contains("acted")){
-//     choice2.innerHTML = choicePrice;
-//     choice.classList.remove("acted");
-//     return;
-//   }
-
-//   if(myDiv.children.item(2).classList.contains("acted")){
-//     choice3.innerHTML = choicePrice;
-//     choice.classList.remove("acted");
-//     return;
-//   }
-
-//   });
-
-//   })
-// });
+      if (myDiv.children.item(0).classList.contains("acted")) {
+        choice1.innerHTML = `${choiceType} ${choicePrice}`;
+        feedingP.innerHTML = `${choiceType}`;
+        return;
+      } else if (myDiv.children.item(1).classList.contains("acted")) {
+        choice2.innerHTML = `${choiceType} ${choicePrice}`;
+        feedingP.innerHTML = `${choiceType}`;
+        return;
+      } else if (myDiv.children.item(2).classList.contains("acted")) {
+        choice3.innerHTML = `${choiceType} ${choicePrice}`;
+        feedingP.innerHTML = `${choiceType}`;
+        return;
+      }
+      if ((feedingP.innerHTML.length = 1)) {
+        feedingP.innerHTML = choice.classList.contains("active");
+      }
+      if ((feedingP.innerHTML.length = 2)) {
+        feedingP.innerHTML = "2 selected";
+      }
+      return;
+    });
+  });
+});
 
 // btnLeft.addEventListener("click", (e) => {
 //   e.preventDefault();

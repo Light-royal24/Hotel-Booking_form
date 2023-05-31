@@ -128,7 +128,40 @@ function getArrivalDate() {
   return { arrivalDate, arrivalTime };
 }
 
-function validatedepartDate(arrivalDate, departDate, departTime) {
+function validatedepartDate(departDate, departTime) {
+  // YYYY/MM/DD
+  const [YYYY, MM, DD] = departDate.split("-");
+
+  // MM/DD/YYYY
+  const formattedDate = `${MM}/${DD}/${YYYY}`;
+
+  const departureDateTimestamp = new Date(formattedDate).getTime();
+}
+
+function getDepartureDate() {
+  const departureDateInput = document.querySelector("#dateDepart");
+  const departureTimeInput = document.querySelector("#hourDepart");
+
+  const arrivalDate = arrivalDateInput.value;
+  const departureDate = departureDateInput.value;
+  const departureTime = departureTimeInput.value;
+
+  return { departureDate, departureTime };
+}
+
+function getDepartureDate() {
+  const departureDateInput = document.querySelector("#dateDepart");
+  const arrivalDateInput = document.querySelector("#dateArrived");
+
+  const arrivalDate = arrivalDateInput.value;
+  const departureDate = departureDateInput.value;
+
+  validateDepartedDate(arrivalDate, departDate);
+
+  return { departureDate, arrivalDate };
+}
+
+function validateDepartedDate(arrivalDate, departDate) {
   // YYYY/MM/DD
   const [YYYY, MM, DD] = departDate.split("-");
   const [YYYY1, MM1, DD1] = arrivalDate.split("-");
@@ -145,27 +178,27 @@ function validatedepartDate(arrivalDate, departDate, departTime) {
   }
 }
 
-function getDepartureDate() {
-  const departureDateInput = document.querySelector("#dateDepart");
-  const departureTimeInput = document.querySelector("#hourDepart");
-  const arrivalDateInput = document.querySelector("#dateArrived");
+function validateFeeding(breakfast, lunch, dinner) {}
 
-  const arrivalDate = arrivalDateInput.value;
-  const departureDate = departureDateInput.value;
-  const departureTime = departureTimeInput.value;
+function getFeedingType() {
+  const breakfastInput = document.querySelector(".choice1");
+  const lunchInput = document.querySelector(".choiice2");
+  const dinnerInput = document.querySelector(".choice3");
 
-  validateArrivalDate(arrivalDate, departureDate, departureTime);
+  const breakfast = breakfastInput.innerHTML;
+  const lunch = lunchInput.innerHTML;
+  const dinner = dinnerInput.innerHTML;
 
-  return { departureDate, departureTime };
+  validateFeeding(breakfast, lunch, dinner);
 }
 
 function formSubmit(e) {
   e.preventDefault();
 
-  const email = getEmailFromInput();
-  const noOfGuests = getNumberOfGuests();
   const { firstName, lastName } = getNamesFromInput();
+  const email = getEmailFromInput();
   // const { room, price } = getRoomTypeFromInput() || { room: null, price: 0 };
+  const noOfGuests = getNumberOfGuests();
 
   const { arrivalDate, arrivalTime } = getArrivalDate() || {
     arrivalDate: null,
@@ -177,12 +210,28 @@ function formSubmit(e) {
     departTime: null,
   };
 
+  const { breakfast, lunch, dinner } = getFeedingType() || {
+    breakfast: null,
+    lunch: null,
+    dinner: null,
+  };
+
   // if (!room || !arrivalDate || !arrivalTime) return;
 
   // console.log(firstName, lastName);
   // console.log({ email });
+  // console.log({ room, price });
   // console.log(noOfGuests);
   // console.log({ arrivalDate, arrivalTime });
+  // console.log("");
+  console.log({ breakfast, lunch, dinner });
 }
 
 hotelForm.addEventListener("submit", formSubmit);
+
+btnLeft.addEventListener("click", (e) => {
+  e.preventDefault();
+  // alert("yo i contain");
+  feedingChoice.classList.toggle("active");
+  show.classList.toggle("shown");
+});

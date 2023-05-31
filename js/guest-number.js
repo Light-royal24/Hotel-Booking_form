@@ -22,8 +22,3 @@ addBtn.addEventListener("click", (e) => {
 
   amountOfGuest.value++;
 });
-
-feedingSelect.addEventListener("click", () => {
-  feedingChoice.classList.toggle("active");
-  show.classList.toggle("shown");
-});

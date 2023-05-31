@@ -91,7 +91,7 @@
 
           <div class="form-group">
             <label for="hourArrived">Hour Minutes</label>
-            <input type="time" id="hourArrived" />
+            <input type="time" id="hourArrived" required />
           </div>
         </div>
       </div>
@@ -109,7 +109,7 @@
 
           <div class="form-group">
             <label for="hourDepart">Hour Minutes</label>
-            <input type="time" id="hourDepart" />
+            <input type="time" id="hourDepart" required />
           </div>
         </div>
       </div>
@@ -121,7 +121,12 @@
         </div>
 
         <div id="feedingChoice">
-          <div class="choice" data-type="BreakFast" data-price="800">
+          <div
+            class="choice"
+            data-type="BreakFast"
+            data-price="800"
+            id="breakfast"
+          >
             <div>
               <span>BreakFast</span>
             </div>
@@ -131,7 +136,7 @@
             </div>
           </div>
 
-          <div class="choice" data-type="Lunch" data-price="1800">
+          <div class="choice" data-type="Lunch" data-price="1800" id="lunch">
             <div>
               <span>Lunch</span>
             </div>
@@ -141,7 +146,7 @@
             </div>
           </div>
 
-          <div class="choice" data-type="Dinner" data-price="1000">
+          <div class="choice" data-type="Dinner" data-price="1000" id="dinner">
             <div>
               <span>Dinner</span>
             </div>
