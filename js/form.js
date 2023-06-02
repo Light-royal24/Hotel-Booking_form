@@ -101,7 +101,7 @@ function getNumberOfGuests() {
   return numberOfGuests;
 }
 
-function validateArrivalDate(arrivalDate, arrivalTime) {
+function validateArrivalDate(arrivalDate) {
   // YYYY/MM/DD
   const [YYYY, MM, DD] = arrivalDate.split("-");
   // MM/DD/YYYY
@@ -118,52 +118,17 @@ function validateArrivalDate(arrivalDate, arrivalTime) {
 
 function getArrivalDate() {
   const arrivalDateInput = document.querySelector("#dateArrived");
-  const arrivalTimeInput = document.querySelector("#hourArrived");
 
   const arrivalDate = arrivalDateInput.value;
-  const arrivalTime = arrivalTimeInput.value;
 
-  validateArrivalDate(arrivalDate, arrivalTime);
+  validateArrivalDate(arrivalDate);
 
-  return { arrivalDate, arrivalTime };
+  return arrivalDate;
 }
 
-function validatedepartDate(departDate, departTime) {
+function validateDepartedDate(arrivalDate, departureDate) {
   // YYYY/MM/DD
-  const [YYYY, MM, DD] = departDate.split("-");
-
-  // MM/DD/YYYY
-  const formattedDate = `${MM}/${DD}/${YYYY}`;
-
-  const departureDateTimestamp = new Date(formattedDate).getTime();
-}
-
-function getDepartureDate() {
-  const departureDateInput = document.querySelector("#dateDepart");
-  const departureTimeInput = document.querySelector("#hourDepart");
-
-  const arrivalDate = arrivalDateInput.value;
-  const departureDate = departureDateInput.value;
-  const departureTime = departureTimeInput.value;
-
-  return { departureDate, departureTime };
-}
-
-function getDepartureDate() {
-  const departureDateInput = document.querySelector("#dateDepart");
-  const arrivalDateInput = document.querySelector("#dateArrived");
-
-  const arrivalDate = arrivalDateInput.value;
-  const departureDate = departureDateInput.value;
-
-  validateDepartedDate(arrivalDate, departDate);
-
-  return { departureDate, arrivalDate };
-}
-
-function validateDepartedDate(arrivalDate, departDate) {
-  // YYYY/MM/DD
-  const [YYYY, MM, DD] = departDate.split("-");
+  const [YYYY, MM, DD] = departureDate.split("-");
   const [YYYY1, MM1, DD1] = arrivalDate.split("-");
   // MM/DD/YYYY
   const formattedDate = `${MM}/${DD}/${YYYY}`;
@@ -173,65 +138,128 @@ function validateDepartedDate(arrivalDate, departDate) {
   const arrivalDateTimestamp = new Date(formattedArrivalDate).getTime();
 
   if (departureDateTimestamp < arrivalDateTimestamp) {
-    alert("date cannot be below arrival date");
+    alert("Departure date cannot be earlier than arrival date");
     return;
   }
 }
 
-function validateFeeding(breakfast, lunch, dinner) {}
+function getDepartureDate() {
+  const departureDateInput = document.querySelector("#dateDepart");
+  const arrivalDateInput = document.querySelector("#dateArrived");
 
-function getFeedingType() {
-  const breakfastInput = document.querySelector(".choice1");
-  const lunchInput = document.querySelector(".choiice2");
-  const dinnerInput = document.querySelector(".choice3");
+  const arrivalDate = arrivalDateInput.value;
+  const departureDate = departureDateInput.value;
 
-  const breakfast = breakfastInput.innerHTML;
-  const lunch = lunchInput.innerHTML;
-  const dinner = dinnerInput.innerHTML;
+  validateDepartedDate(arrivalDate, departureDate);
 
-  validateFeeding(breakfast, lunch, dinner);
+  return departureDate;
 }
+
+function getFeeding() {
+  const feedingCheckboxes = Array.from(
+    document.querySelectorAll(".feeding-checkbox")
+  );
+
+  const feeding = {};
+
+  feedingCheckboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      const dataType = checkbox.dataset.type;
+
+      feeding[dataType] = +checkbox.value;
+    }
+  });
+
+  return feeding;
+}
+
+const durationDays = (date_1, date_2) => {
+  let difference = new Date(date_1).getTime() - new Date(date_2).getTime();
+  let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
+
+  return TotalDays;
+};
+
+function calculatePrice(reservationData) {
+  const noOfDays = durationDays(
+    reservationData.departureDate,
+    reservationData.arrivalDate
+  );
+
+  const accommodationPrice = reservationData.room.price * noOfDays;
+  let dailyFeeding = 0;
+
+  Object.entries(reservationData.feeding).forEach(([key, value]) => {
+    dailyFeeding += value;
+  });
+
+  const totalFeeding = dailyFeeding * noOfDays;
+
+  return {
+    accommodation: accommodationPrice,
+    feeding: totalFeeding,
+  };
+}
+
+function getReservations() {
+  const reservationsStr = localStorage.getItem("hotel_reservations");
+  const reservationsArray = JSON.parse(reservationsStr) || [];
+
+  return reservationsArray;
+}
+
+function saveReservationData(reservationData) {
+  const allReservations = getReservations();
+
+  allReservations.push(reservationData);
+  const reservationsStr = JSON.stringify(allReservations);
+
+  localStorage.setItem("hotel_reservations", reservationsStr);
+}
+
+function displayReservations() {
+  const reservations = getReservations();
+  console.log(reservations);
+}
+
+const allNames = document.querySelector("#allNames");
+const allEmail = document.querySelector("#allEmail");
+const roomSelected = document.querySelector("#roomSelected");
+const numOfGuest = document.querySelector("#numOfGuest");
+const ArivalDateAndTime = document.querySelector("#ArivalDateAndTime");
+const departureDateandTime = document.querySelector("#departureDateandTime");
 
 function formSubmit(e) {
   e.preventDefault();
 
   const { firstName, lastName } = getNamesFromInput();
   const email = getEmailFromInput();
-  // const { room, price } = getRoomTypeFromInput() || { room: null, price: 0 };
+  const { room, price } = getRoomTypeFromInput() || { room: null, price: 0 };
   const noOfGuests = getNumberOfGuests();
 
-  const { arrivalDate, arrivalTime } = getArrivalDate() || {
-    arrivalDate: null,
-    arrivalTime: null,
+  const arrivalDate = getArrivalDate() || null;
+  const departureDate = getDepartureDate() || null;
+
+  const feeding = getFeeding();
+
+  const reservationData = {
+    name: `${firstName} ${lastName}`,
+    email,
+    noOfGuests,
+    arrivalDate,
+    departureDate,
+    feeding,
+    room: {
+      type: room,
+      price,
+    },
   };
 
-  const { DepartDate, departTime } = getArrivalDate() || {
-    departDate: null,
-    departTime: null,
-  };
+  reservationData.totalCost = calculatePrice(reservationData);
 
-  const { breakfast, lunch, dinner } = getFeedingType() || {
-    breakfast: null,
-    lunch: null,
-    dinner: null,
-  };
-
-  // if (!room || !arrivalDate || !arrivalTime) return;
-
-  // console.log(firstName, lastName);
-  // console.log({ email });
-  // console.log({ room, price });
-  // console.log(noOfGuests);
-  // console.log({ arrivalDate, arrivalTime });
-  // console.log("");
-  console.log({ breakfast, lunch, dinner });
+  saveReservationData(reservationData);
+  displayReservations();
 }
 
 hotelForm.addEventListener("submit", formSubmit);
-
-btnLeft.addEventListener("click", (e) => {
-  e.preventDefault();
-  // alert("yo i contain");
-  feedingChoice.classList.toggle("active");
-  show.classList.toggle("shown");
-});
+displayReservations();

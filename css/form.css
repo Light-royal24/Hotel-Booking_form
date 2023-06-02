@@ -1,0 +1,294 @@
+.form {
+  margin: auto;
+  padding: 20px 0;
+  padding-bottom: 80px;
+  width: 90%;
+}
+
+
+.form-group {
+  flex-grow: 1;
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-group {
+  display: flex;
+  gap: 15px;
+}
+
+input, #hotelSelect, .input {
+  flex-grow: 1;
+  padding: 10px;
+  color: #222;
+  outline-color: blue;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+label {
+  color: grey;
+  font-size: 1rem;
+}
+
+.form-group #hotelSelect {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+#reveal {
+  display: flex;
+  font-weight: bold;
+  margin-top: -10px;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg);
+  transition: all 0.2s ease-in-out;
+}
+
+#reveal.open {
+  transform: rotate(0deg);
+  margin-top: 0px;
+}
+
+#roomType {
+  position: relative;
+}
+
+#feedingType {
+  position: relative;
+}
+
+.form-group #hotelType {
+  border-radius: 5px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  transition: all 0.2s ease-in;
+  opacity: 0;
+  display: none;
+}
+
+.form-group #hotelType div {
+  display: flex;
+  background-color: #ccc;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  border: 1px solid #aaa;
+  padding: 8px 10px 7px 5px;
+}
+
+.form-group #hotelType div:hover {
+  background-color: #aaa;
+}
+
+.form-group #hotelType.active{
+  top: 60px;
+  opacity: 1;
+  display: block;
+}
+
+.numberOfGuest {
+  display: flex;
+  gap: 3px;
+  align-items: stretch;
+  border-radius: 5px;
+}
+
+.numberOfGuest button {
+  width: 30px;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: white;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.numberOfGuest button:hover {
+  background-color: #ddd;
+}
+
+.form-group #amountOfGuest {
+  text-align: center;
+  font-weight: bold;
+  justify-self: center;
+  height: 100%;
+  align-self: center;
+  display: flex;
+  color: black;
+}
+
+
+.form-group #amountOfGuest::-webkit-outer-spin-button,
+.form-group #amountOfGuest::-webkit-inner-spin-button {
+  display: none;
+}
+
+.arriveContent {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.arriveContent label {
+  display: block;
+
+}
+
+.arriveContent input {
+  flex-grow: 1;
+  margin-top: 3px;
+}
+
+
+.departure-date input {
+  flex-grow: 1;
+  margin-bottom: 3px;
+}
+
+#feedingType {
+  position: relative;
+}
+
+
+#feedingSelect {
+  flex-grow: 1;
+  padding: 10px;
+  color: #222;
+  outline-color: blue;
+  border-radius: 5px;
+  border: 1px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.form-group #feedingChoice {
+  border-radius: 5px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  transition: all 0.2s ease-in;
+  opacity: 0;
+  display: none;
+}
+
+.form-group #feedingChoice .choice {
+  background-color: #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  border: 1px solid #aaa;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px 7px 5px;
+}
+
+.form-group #feedingChoice .choice.acted {
+  color: #aaa;
+  background-color: darkolivegreen;
+}
+
+
+.form-group #feedingChoice .choice.acted:hover {
+  color: #aaa;
+  background-color: yellowgreen;
+}
+
+
+.form-group #feedingChoice .choice:hover {
+  background-color: #aaa;
+}
+
+.form-group #feedingChoice.active{
+  top: 44px;
+  opacity: 1;
+  display: block;
+}
+
+#show {
+  display: flex;
+  font-weight: bold;
+  margin-top: -10px;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg);
+  transition: all 0.2s ease-in-out;
+}
+
+#show.shown {
+  transform: rotate(0deg);
+  margin-top: 0px;
+}
+
+#submitForm {
+  width: 100%;
+  margin-top: 15px;
+  /* background-color: red; */
+  height: 50px;
+}
+
+#submitform {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333;
+  background-color: #ccc;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#submitform:hover {
+  background-color: #aaa;
+}
+
+#okFood {
+  background-color: #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  border: 1px solid #aaa;
+  display: flex;
+  justify-content: right;
+  padding: 8px 10px 7px 5px;
+  margin-bottom: 30px;
+}
+
+#btnLeft {
+  width: 15%;
+}
+
+#storeSelFood {
+  width: 100%;
+  color: #333;
+  background-color: #aaa;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+
+#storeSelFood:hover {
+  color: #aaa;
+  background-color: #333;
+}
+
+
+.form-group #feedingChoice .choice1 , .choice2, .choice3 {
+ left: -9999px;
+ position: absolute;
+}

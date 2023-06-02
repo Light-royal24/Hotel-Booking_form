@@ -3,10 +3,10 @@ const feedingChoice = document.querySelector("#feedingChoice");
 const feedingSelect = document.querySelector("#feedingSelect");
 const feedingP = document.querySelector("#feed");
 
-feedingSelect.addEventListener("click", () => {
-  feedingChoice.classList.toggle("active");
-  show.classList.toggle("shown");
-});
+// feedingSelect.addEventListener("click", () => {
+//   feedingChoice.classList.toggle("active");
+//   show.classList.toggle("shown");
+// });
 
 const choices = document.querySelectorAll(".choice");
 const myDiv = document.querySelector("#feedingChoice");
@@ -14,7 +14,7 @@ const choice1 = document.querySelector(".choice1");
 const choice2 = document.querySelector(".choice2");
 const choice3 = document.querySelector(".choice3");
 const submitForm = document.querySelector("#submitForm");
-const myDivChildren = myDiv.children;
+// const myDivChildren = myDiv.children;
 
 choices.forEach((choice) => {
   choice.addEventListener("click", () => {

@@ -1,0 +1,80 @@
+.form-data {
+  background-color: #333;
+  padding: 10px;
+}
+
+.form-data h2 {
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  font-weight: 200;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.info-tabs {
+  gap: 3px;
+  background-color: #333;
+  color: #aaa;
+  display: flex;
+}
+
+.info-tab {
+  background-color: #ccc;
+  color: black;
+  cursor: pointer;
+  padding: 5px 10px;
+  width: 150px;
+  font-size: 0.9em;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: all 0.2s ease-in;
+}
+
+.info-tab.active {
+  background-color: #eee;
+}
+
+.info-tab:hover {
+  background-color: #eee;
+}
+
+.tab-panels {
+  height: 180px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 0 10px 10px 10px;
+}
+
+.data-info {
+  color: #333;
+}
+
+.data-info {
+  background-color: #eee;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: all 0.3s ease-in;
+  border-radius: 0 10px 10px 10px;
+}
+
+.data-info.active {
+  opacity: 1;
+}
+
+.info {
+  padding: 5px;
+}
+
+.info-label {
+  font-weight: 100;
+  font-size: 0.8em;
+  color: grey;
+}
+
+.info-value {
+  font-size: 0.9em;
+  font-weight: bold;
+}

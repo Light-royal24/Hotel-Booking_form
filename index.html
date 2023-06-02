@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/form.css" />
+    <link rel="stylesheet" href="css/reservations.css" />
+
     <title>Hotel Booking</title>
   </head>
   <body>
@@ -13,10 +17,10 @@
         <h1>Hotel Booking</h1>
         <p>Experience something new every moment</p>
       </div>
-
+      <!-- 
       <div id="submitForm">
         <button id="submitform" type="submit">submit</button>
-      </div>
+      </div> -->
 
       <div class="hotelForm">
         <div class="flex-group">
@@ -86,12 +90,7 @@
         <div class="arriveContent">
           <div class="form-group">
             <label for="dateArrived">Date</label>
-            <input type="date" id="dateArrived" required />
-          </div>
-
-          <div class="form-group">
-            <label for="hourArrived">Hour Minutes</label>
-            <input type="time" id="hourArrived" required />
+            <input type="date" id="dateArrived" required value="2023-07-07" />
           </div>
         </div>
       </div>
@@ -104,74 +103,122 @@
         <div class="arriveContent">
           <div class="form-group">
             <label for="dateDepart">Date</label>
-            <input type="date" id="dateDepart" required />
-          </div>
-
-          <div class="form-group">
-            <label for="hourDepart">Hour Minutes</label>
-            <input type="time" id="hourDepart" required />
+            <input type="date" id="dateDepart" required value="2023-07-14" />
           </div>
         </div>
       </div>
 
-      <div class="form-group" id="feedingType">
-        <div id="feedingSelect">
-          <h3 id="feed">feeding</h3>
-          <span id="show" class="shown">^</span>
-        </div>
-
-        <div id="feedingChoice">
-          <div
-            class="choice"
-            data-type="BreakFast"
-            data-price="800"
-            id="breakfast"
-          >
-            <div>
-              <span>BreakFast</span>
-            </div>
-            <p class="choice1"></p>
-            <div>
-              <p>800</p>
-            </div>
+      <div class="form-group" id="feeding">
+        <label for="feeding">Feeding Option</label>
+        <div class="input flex-group">
+          <div class="input">
+            <input
+              type="checkbox"
+              value="0"
+              id="breakfast"
+              checked
+              data-type="Breakfast"
+              class="feeding-checkbox"
+            />
+            <label for="breakfast">Breakfast (Free)</label>
           </div>
 
-          <div class="choice" data-type="Lunch" data-price="1800" id="lunch">
-            <div>
-              <span>Lunch</span>
-            </div>
-            <p class="choice2"></p>
-            <div>
-              <span>1,800</span>
-            </div>
+          <div class="input">
+            <input
+              type="checkbox"
+              value="1800"
+              id="lunch"
+              checked
+              data-type="Lunch"
+              class="feeding-checkbox"
+            />
+            <label for="lunch">Lunch (NGN1800)</label>
           </div>
 
-          <div class="choice" data-type="Dinner" data-price="1000" id="dinner">
-            <div>
-              <span>Dinner</span>
-            </div>
-            <p class="choice3"></p>
-            <div>
-              <span>1,000</span>
-            </div>
-          </div>
-
-          <div id="okFood">
-            <div id="btnLeft">
-              <button id="storeSelFood">ok</button>
-            </div>
+          <div class="input">
+            <input
+              type="checkbox"
+              data-type="Dinner"
+              value="1000"
+              checked
+              id="dinner"
+              class="feeding-checkbox"
+            />
+            <label for="dinner">Dinner (NGN1000)</label>
           </div>
         </div>
       </div>
 
       <div id="submitForm">
-        <button id="submitform" type="submit">submit</button>
+        <button id="submitform" type="submit">Submit</button>
       </div>
     </form>
+
+    <div class="form-data">
+      <h2>Your Data will display here</h2>
+
+      <div class="info-tabs">
+        <div class="info-tab active" id="bio-details">Bio Details</div>
+        <div class="info-tab" id="reservation-info">Reservation Info</div>
+        <div class="info-tab" id="price-info">Price Info</div>
+      </div>
+
+      <div class="tab-panels">
+        <div class="data-info active" data-name="bio-details">
+          <div class="info">
+            <div class="info-label">Name:</div>
+
+            <div class="info-value">David Prosper</div>
+          </div>
+
+          <div class="info">
+            <div class="info-label">Email:</div>
+
+            <div class="info-value">david@mail.com</div>
+          </div>
+        </div>
+
+        <div class="data-info" data-name="reservation-info">
+          <div class="info">
+            <div class="info-label">Room type:</div>
+
+            <div class="info-value">Silver</div>
+          </div>
+
+          <div class="info">
+            <div class="info-label">Number of guests:</div>
+
+            <div class="info-value">2</div>
+          </div>
+
+          <div class="info">
+            <div class="info-label">Arrival date:</div>
+
+            <div class="info-value">02-06-2023 9PM</div>
+          </div>
+
+          <div class="info">
+            <div class="info-label">Departure date:</div>
+
+            <div class="info-value">02-06-2023 9PM</div>
+          </div>
+        </div>
+
+        <div class="data-info" data-name="price-info">
+          <div class="info">
+            <div class="info-label">Total price:</div>
+
+            <div class="info-value">NGN13,500</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="js/room-type.js"></script>
     <script src="js/guest-number.js"></script>
     <script src="js/form.js"></script>
+    <script src="js/tabs.js"></script>
+    <script src="js/display.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>
