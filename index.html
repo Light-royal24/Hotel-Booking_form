@@ -92,6 +92,10 @@
             <label for="dateArrived">Date</label>
             <input type="date" id="dateArrived" required value="2023-07-07" />
           </div>
+          <div class="form-group">
+            <label for="timeArrived">Time</label>
+            <input type="time" id="timeArrived" required value="06:29" />
+          </div>
         </div>
       </div>
 
@@ -104,6 +108,10 @@
           <div class="form-group">
             <label for="dateDepart">Date</label>
             <input type="date" id="dateDepart" required value="2023-07-14" />
+          </div>
+          <div class="form-group">
+            <label for="timeDepart">Time</label>
+            <input type="time" id="timeDepart" required value="07:25" />
           </div>
         </div>
       </div>
@@ -154,61 +162,69 @@
       </div>
     </form>
 
+    <h2 style="padding: 0 10px">Your Data will display here</h2>
     <div class="form-data">
-      <h2>Your Data will display here</h2>
-
-      <div class="info-tabs">
-        <div class="info-tab active" id="bio-details">Bio Details</div>
-        <div class="info-tab" id="reservation-info">Reservation Info</div>
-        <div class="info-tab" id="price-info">Price Info</div>
-      </div>
-
-      <div class="tab-panels">
-        <div class="data-info active" data-name="bio-details">
+      <div class="reservation">
+        <div class="button-row">
+          <button>x</button>
+        </div>
+        <div class="info-row">
           <div class="info">
             <div class="info-label">Name:</div>
 
-            <div class="info-value">David Prosper</div>
+            <div class="info-value" id="name">David Prosper</div>
           </div>
 
           <div class="info">
             <div class="info-label">Email:</div>
 
-            <div class="info-value">david@mail.com</div>
+            <div class="info-value" id="myEmail">david@mail.com</div>
           </div>
         </div>
 
-        <div class="data-info" data-name="reservation-info">
+        <div class="info-row">
           <div class="info">
             <div class="info-label">Room type:</div>
 
-            <div class="info-value">Silver</div>
+            <div class="info-value" id="room-info">Silver</div>
           </div>
 
           <div class="info">
             <div class="info-label">Number of guests:</div>
 
-            <div class="info-value">2</div>
+            <div class="info-value" id="guest-amount">2</div>
           </div>
 
           <div class="info">
             <div class="info-label">Arrival date:</div>
 
-            <div class="info-value">02-06-2023 9PM</div>
+            <div class="info-value" id="date-arrived">02-06-2023 9PM</div>
           </div>
 
           <div class="info">
             <div class="info-label">Departure date:</div>
 
-            <div class="info-value">02-06-2023 9PM</div>
+            <div class="info-value" id="date-depart">02-06-2023 9PM</div>
           </div>
         </div>
 
-        <div class="data-info" data-name="price-info">
+        <div class="info-row">
+          <div class="info">
+            <div class="info-label">Room Price:</div>
+
+            <div class="info-value" id="room-amount">NGN13,500</div>
+          </div>
+
+          <div class="info">
+            <div class="info-label">Feeding:</div>
+
+            <div class="info-value" id="Feeding-price">NGN13,500</div>
+          </div>
+
           <div class="info">
             <div class="info-label">Total price:</div>
 
-            <div class="info-value">NGN13,500</div>
+            <div class="info-value" id="total-amount">NGN13,500</div>
           </div>
         </div>
       </div>

@@ -59,12 +59,14 @@ function getNamesFromInput() {
 
 function getEmailFromInput() {
   const emailInput = document.querySelector("#Email");
+  const email = emailInput.value;
 
-  if (emailInput.value.trim() == "") {
+  if (email.trim() === "") {
     alert("Email cannot be empty");
     emailInput.focus();
+    return;
   }
-  return emailInput.value;
+  return email;
 }
 
 function getRoomTypeFromInput() {
@@ -155,6 +157,22 @@ function getDepartureDate() {
   return departureDate;
 }
 
+function getArrivalTime() {
+  const arrivalTimeInput = document.querySelector("#timeArrived");
+
+  const arrivalTime = arrivalTimeInput.value;
+
+  return arrivalTime;
+}
+
+function getDepartureTime() {
+  const arrivalTimeInput = document.querySelector("#timeDepart");
+
+  const departureTime = arrivalTimeInput.value;
+
+  return departureTime;
+}
+
 function getFeeding() {
   const feedingCheckboxes = Array.from(
     document.querySelectorAll(".feeding-checkbox")
@@ -201,34 +219,6 @@ function calculatePrice(reservationData) {
   };
 }
 
-function getReservations() {
-  const reservationsStr = localStorage.getItem("hotel_reservations");
-  const reservationsArray = JSON.parse(reservationsStr) || [];
-
-  return reservationsArray;
-}
-
-function saveReservationData(reservationData) {
-  const allReservations = getReservations();
-
-  allReservations.push(reservationData);
-  const reservationsStr = JSON.stringify(allReservations);
-
-  localStorage.setItem("hotel_reservations", reservationsStr);
-}
-
-function displayReservations() {
-  const reservations = getReservations();
-  console.log(reservations);
-}
-
-const allNames = document.querySelector("#allNames");
-const allEmail = document.querySelector("#allEmail");
-const roomSelected = document.querySelector("#roomSelected");
-const numOfGuest = document.querySelector("#numOfGuest");
-const ArivalDateAndTime = document.querySelector("#ArivalDateAndTime");
-const departureDateandTime = document.querySelector("#departureDateandTime");
-
 function formSubmit(e) {
   e.preventDefault();
 
@@ -238,7 +228,9 @@ function formSubmit(e) {
   const noOfGuests = getNumberOfGuests();
 
   const arrivalDate = getArrivalDate() || null;
+  const arrivalTime = getArrivalTime() || null;
   const departureDate = getDepartureDate() || null;
+  const departureTime = getDepartureTime() || null;
 
   const feeding = getFeeding();
 
@@ -262,4 +254,3 @@ function formSubmit(e) {
 }
 
 hotelForm.addEventListener("submit", formSubmit);
-displayReservations();
